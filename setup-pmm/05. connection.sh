@@ -6,3 +6,4 @@ GRANT SELECT, PROCESS, REPLICATION CLIENT, RELOAD, BACKUP_ADMIN ON *.* TO 'pmm'@
 
 #And finally, register the MySQL server for monitoring:
 docker exec pmm-client pmm-admin add mysql --username=pmm --password=pass --host 172.17.0.4 --query-source=perfschema
+# where --host 172.17.0.4 is the IP of MySQL
