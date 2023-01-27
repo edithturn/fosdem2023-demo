@@ -42,4 +42,24 @@ VALUES('Green House', 'Joe Monter', '{"about" : {"gender": "action", "cool": tru
 INSERT INTO movies(title,publisher, labels) 
 VALUES('El camino', 'Daniil Zotl', '{"about" : {"gender": "documental", "cool": true, "notes": "labeled"}}');
 
+INSERT INTO movies(title,publisher, labels) 
+VALUES('Shape', 'Aleks Garcia', '{"about" : {"gender": "documental", "cool": true, "notes": "labeled"}}');
+
+
 select * from movies;
+
+
+# Installing Percona MySQl with Docker
+docker run -d \
+  --name ps \
+  -e MYSQL_ROOT_PASSWORD=root \
+  percona/percona-server:8.0
+
+# Let's check Percona MySQL container IP
+docker inspect -f '{{range.NetworkSettings.Networks}}{{.IPAddress}}{{end}}' your_container
+#Example: 172.17.0.4 
+
+# For configuring PMM for monitoring MySQL, we need to create a PMM user. First, log into MySQL
+docker run -it --rm percona mysql -h 172.17.0.4 -uroot -p
+
+# Use password: root

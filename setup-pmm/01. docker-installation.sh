@@ -41,13 +41,3 @@ sudo groupadd docker
 sudo usermod -aG docker $USER
 
 # Note: reboot machine
-
-
-
-
-
-
-# PMM Server
-
-docker create --volume /srv --name pmm-data\
-percona/pmm-server:2 /bin/true
